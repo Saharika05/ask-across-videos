@@ -1,0 +1,20 @@
+# Streamlit secrets — NEVER commit this, it holds real API keys
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Local output/data
+answers/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

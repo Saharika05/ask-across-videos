@@ -1,0 +1,58 @@
+# 🔎 Ask Across Videos
+
+Ask a question, get a **sourced answer** synthesized across multiple YouTube videos — instead of watching all of them yourself.
+
+**[🚀 Try the live demo](#)** *(link added after deployment)*
+
+![screenshot](docs/screenshot.png)
+*(add a screenshot here after deployment — see "Adding a screenshot" below)*
+
+## What it does
+
+Paste in a handful of YouTube videos — lectures, podcasts, interviews — ask a specific question, and get one synthesized, source-cited answer. Every claim links back to the exact video (and timestamp) it came from. If your videos don't actually cover the question, it says so honestly instead of guessing.
+
+## Features
+
+- **Multiple research modes** — Synthesize, Compare, Consensus, Contradictions, or Video-by-video breakdowns
+- **Multilingual** — understands and retrieves from Hindi, Kannada, Tamil, Telugu, and more, not just English
+- **Choice of AI provider** — bring your own free key from OpenRouter, Groq, or Gemini
+- **Clickable citations** — `[V1]`, `[V2]` links jump straight to the cited moment in the source video
+- **Answer controls** — choose paragraph or point-wise format, and a target word count
+- **Bulk-paste videos** — drop in many links at once instead of one field at a time
+- **Live streaming answers** — see the answer generate in real time
+
+## Run it locally
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ask-across-videos.git
+cd ask-across-videos
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+You'll need a free API key from one of:
+- [OpenRouter](https://openrouter.ai/keys) — no card required
+- [Groq](https://console.groq.com/keys) — no card required
+- [Gemini](https://aistudio.google.com/apikey) — no card required
+
+Paste it into the sidebar when the app opens.
+
+## Tech stack
+
+- **Streamlit** — UI framework
+- **youtube-transcript-api** — pulls video captions
+- **sentence-transformers** (multilingual embedding model) — semantic search across transcript chunks so long/multiple videos don't blow past context limits
+- **OpenAI-compatible SDK** — works against OpenRouter, Groq, or Gemini's API
+
+## Known limitations
+
+- Only works on videos that have captions (auto-generated or manual) — a small number of videos have none
+- Free-tier API limits apply depending on which provider/model you use
+- Free models on OpenRouter occasionally rotate out; the app automatically falls back to the next available model in that case
+
+## Why I built this
+
+I wanted a tool that gave **honest, sourced** answers across scattered video content — not a generic summarizer, and not something that makes things up when the source material doesn't actually cover the question. Built and debugged end-to-end as a learning project, including handling real-world issues like API rate limits, model deprecation, and multilingual retrieval.
+
+---
+Built by [Your Name] — [LinkedIn](#) · [GitHub](#)

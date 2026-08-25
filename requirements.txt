@@ -1,0 +1,6 @@
+streamlit>=1.40
+youtube-transcript-api>=1.2.0
+openai>=1.50.0
+requests>=2.31.0
+sentence-transformers>=3.0,<6
+numpy>=1.24
