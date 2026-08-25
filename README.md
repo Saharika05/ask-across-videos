@@ -56,4 +56,4 @@ Paste it into the sidebar when the app opens.
 I wanted a tool that gives **honest, sourced** answers across scattered video content — not a generic summarizer, and not something that makes things up when the source material doesn't actually cover the question. Built and debugged end-to-end as a learning project, including handling real-world issues like API rate limits, model deprecation, and multilingual retrieval.
 
 ---
-Built by SAHARIKA — [LinkedIn](https://www.linkedin.com/in/saharika-s-m-b8bb3a384/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B4HyX5ffEQX6RpEIsKDLaBQ%3D%3D) · [GitHub](#)
+Built by SAHARIKA — [LinkedIn](https://www.linkedin.com/in/saharika-s-m-b8bb3a384/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B4HyX5ffEQX6RpEIsKDLaBQ%3D%3D) · [GitHub](https://github.com/Saharika05/ask-across-videos?utm_source=chatgpt.com)
