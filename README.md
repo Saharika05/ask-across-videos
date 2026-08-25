@@ -2,7 +2,7 @@
 
 Ask a question, get a **sourced answer** synthesized across multiple YouTube videos — instead of watching all of them yourself.
 
-**[🚀 Try the live demo](#)** *(link added after deployment)*
+**[ Try the live demo](#)** *(link added after deployment)*
 
 ![screenshot](docs/screenshot.png)
 *(add a screenshot here after deployment — see "Adding a screenshot" below)*
