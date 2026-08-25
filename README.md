@@ -2,7 +2,7 @@
 
 Ask a question, get a **sourced answer** synthesized across multiple YouTube videos — instead of watching all of them yourself.
 
-**[ Try the live demo](#)** *(link added after deployment)*
+**[ Try the live demo](https://ask-across-videos.streamlit.app/)** *(link added after deployment)*
 
 ![screenshot](docs/screenshot.png)
 *(add a screenshot here after deployment — see "Adding a screenshot" below)*
@@ -55,4 +55,4 @@ Paste it into the sidebar when the app opens.
 I wanted a tool that gave **honest, sourced** answers across scattered video content — not a generic summarizer, and not something that makes things up when the source material doesn't actually cover the question. Built and debugged end-to-end as a learning project, including handling real-world issues like API rate limits, model deprecation, and multilingual retrieval.
 
 ---
-Built by [Your Name] — [LinkedIn](#) · [GitHub](#)
+Built by SAHARIKA — [LinkedIn](#) · [GitHub](#)
