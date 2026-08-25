@@ -4,10 +4,6 @@ Ask a question, get a **sourced answer** synthesized across multiple YouTube vid
 
 **[ Try the live demo](https://ask-across-videos.streamlit.app/)** 
 
-![screenshot](<img width="1532" height="970" alt="Screenshot 2026-08-25 161648" src="https://github.com/user-attachments/assets/5c7ea3c7-faf9-4d47-b474-5c44ea563a67" />
-)
-
-
 ## What it does
 
 Paste in a handful of YouTube videos — lectures, podcasts, interviews — ask a specific question, and get one synthesized, source-cited answer. Every claim links back to the exact video (and timestamp) it came from. If your videos don't actually cover the question, it says so honestly instead of guessing.
