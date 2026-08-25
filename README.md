@@ -4,7 +4,7 @@ Ask a question, get a **sourced answer** synthesized across multiple YouTube vid
 
 **[ Try the live demo](https://ask-across-videos.streamlit.app/)** 
 
-![screenshot](<img width="1532" height="970" alt="Screenshot 2026-08-25 161648" src="https://github.com/user-attachments/assets/b40fdfab-1d9a-4062-a82b-c6e0dd01c2e5" />
+![screenshot](<img width="1532" height="970" alt="Screenshot 2026-08-25 161648" src="https://github.com/user-attachments/assets/5c7ea3c7-faf9-4d47-b474-5c44ea563a67" />
 )
 
 
