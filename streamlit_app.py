@@ -1112,43 +1112,46 @@ num_videos = st.number_input(
 
 video_urls = []
 seen_ids = set()
-for i in range(int(num_videos)):
-    url = st.text_input(
-        f"Video {i + 1} link",
-        key=f"video_url_{i}",
-        placeholder="https://youtu.be/...",
-    )
-    if url.strip():
-        vid = extract_video_id(url.strip())
-        if vid not in seen_ids:
-            seen_ids.add(vid)
-            video_urls.append(url.strip())
-        else:
-            st.caption(f"Video {i + 1}: duplicate video ignored.")
-
-with st.expander("📋 Or paste multiple YouTube links at once"):
-    bulk_urls_text = st.text_area(
-        "Paste links separated by spaces, commas, or new lines",
-        key="bulk_urls_text",
-        placeholder="https://youtu.be/...\nhttps://www.youtube.com/watch?v=...",
-        height=90,
-    )
-    bulk_urls = extract_video_urls_from_text(bulk_urls_text)
-    if bulk_urls:
-        st.caption(f"Found {len(bulk_urls)} YouTube link(s). Duplicates will be ignored.")
-        for bulk_url in bulk_urls[:MAX_VIDEOS]:
-            vid = extract_video_id(bulk_url)
-            if vid not in seen_ids and len(video_urls) < MAX_VIDEOS:
+with st.form("video_links_form", clear_on_submit=False):
+    for i in range(int(num_videos)):
+        url = st.text_input(
+            f"Video {i + 1} link",
+            key=f"video_url_{i}",
+            placeholder="https://youtu.be/...",
+        )
+        if url.strip():
+            vid = extract_video_id(url.strip())
+            if vid not in seen_ids:
                 seen_ids.add(vid)
-                video_urls.append(bulk_url)
+                video_urls.append(url.strip())
+            else:
+                st.caption(f"Video {i + 1}: duplicate video ignored.")
 
-process_clicked = st.button(
-    "🔍 Process videos",
-    disabled=not video_urls,
-    use_container_width=True,
-)
+    with st.expander("📋 Or paste multiple YouTube links at once"):
+        bulk_urls_text = st.text_area(
+            "Paste links separated by spaces, commas, or new lines",
+            key="bulk_urls_text",
+            placeholder="https://youtu.be/...\nhttps://www.youtube.com/watch?v=...",
+            height=90,
+        )
+        bulk_urls = extract_video_urls_from_text(bulk_urls_text)
+        if bulk_urls:
+            st.caption(f"Found {len(bulk_urls)} YouTube link(s). Duplicates will be ignored.")
+            for bulk_url in bulk_urls[:MAX_VIDEOS]:
+                vid = extract_video_id(bulk_url)
+                if vid not in seen_ids and len(video_urls) < MAX_VIDEOS:
+                    seen_ids.add(vid)
+                    video_urls.append(bulk_url)
 
-if process_clicked:
+    process_clicked = st.form_submit_button(
+        "🔍 Process videos",
+        use_container_width=True,
+    )
+
+if process_clicked and not video_urls:
+    st.warning("Add at least one YouTube link before processing.")
+
+if process_clicked and video_urls:
     existing_by_id = {
         v.get("video_id"): (url, v)
         for url, v in st.session_state.processed.items()
@@ -1273,13 +1276,16 @@ if st.session_state.processed:
 
         if answered_so_far < num_q:
             q_number = answered_so_far + 1
-            question = st.text_input(
-                f"Question {q_number} of {num_q}",
-                key=f"q_input_{q_number}",
-                placeholder="Ask anything about these videos…",
-            )
+            with st.form(f"question_form_{q_number}", clear_on_submit=False):
+                question = st.text_input(
+                    f"Question {q_number} of {num_q}",
+                    key=f"q_input_{q_number}",
+                    placeholder="Ask anything about these videos…",
+                )
+                ask_clicked = st.form_submit_button("💬 Get answer", use_container_width=True)
 
-            ask_clicked = st.button("💬 Get answer", disabled=not question.strip(), use_container_width=True)
+            if ask_clicked and not question.strip():
+                st.warning("Type a question before submitting.")
             if ask_clicked and question.strip():
                 progress = st.empty()
                 try:
